@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AppClass.MyPage5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="fontsize">18</x:Double>
+            <Color x:Key="bkColor">Silver</Color>
+            <Color x:Key="txtColor">White</Color>
+            
+            <Style TargetType="Label" >
+                <Setter Property="BackgroundColor" Value=" Silver"/>    
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="0,44,0,0">
+            <Label Text="1" BackgroundColor="Silver" TextColor="White" FontSize="18"/>
+            <Label Text="2" BackgroundColor="{StaticResource bkColor}" TextColor="{StaticResource txtColor}" FontSize="{StaticResource fontsize}"/>
+            <Label Text="3" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

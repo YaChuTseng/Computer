@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="AppClass.MyPage">
+<!--    <StackLayout Spacing="10" Margin="0,44,0,0" Orientation="Vertical" VerticalOptions="Center">-->-->
+        <!--<BoxView BackgroundColor="Yellow" />
+        <BoxView BackgroundColor="Green" />
+        <BoxView BackgroundColor="Red" />-->
+        <!--<Entry HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        <Button Text="button" VerticalOptions="Start"/>-->
+        <!--<Entry HorizontalOptions="Center" WidthRequest="200" HeightRequest="40"/>
+        <Entry HorizontalOptions="Center" WidthRequest="200" HeightRequest="40"/>
+        <Button HorizontalOptions="Center" Text="Login" BackgroundColor="Silver" WidthRequest="200"/>-->
+<!--    </StackLayout>-->
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <BoxView BackgroundColor="Yellow" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <!--<BoxView BackgroundColor="Green" Grid.Column="1" Grid.Row="0"/>-->
+        <BoxView BackgroundColor="Red" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
+        <BoxView BackgroundColor="Blue" Grid.Column="1" Grid.Row="1"/>
+        <BoxView BackgroundColor="Gray" Grid.Column="2" Grid.Row="0"/>
+        
+    </Grid>
+</ContentPage>

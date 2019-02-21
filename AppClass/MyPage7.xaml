@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AppClass.MyPage7">
+    <ContentPage.Content>
+        <StackLayout Margin="0,44,0,100">
+            <Label 
+            Text="123" 
+            VerticalOptions="FillAndExpand" 
+            VerticalTextAlignment="Center" 
+            HorizontalTextAlignment="Center"
+            FontSize="{Binding Source={x:Reference slider},Path=Value}"/>
+            <Slider x:Name="slider"  Minimum="0" Maximum="200"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

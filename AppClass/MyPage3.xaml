@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AppClass.MyPage3">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Image Source="groupIcon.png" VerticalOptions="FillAndExpand"/>-->
+            <Image Source="https://www.ignatiuz.com/wp-content/uploads/2018/07/Xamarin.jpg" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
