@@ -29,26 +29,22 @@ namespace AppClass
 
     public class Computer : INotifyPropertyChanged
     {
-        private string _value = "0";
+        private string entry = "0";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Value { get { return _value; } set { _value = value; PropertyChanged(this, new PropertyChangedEventArgs("Value")); } }
+        public string Entry { get { return entry; } set { entry = value; PropertyChanged(this, new PropertyChangedEventArgs("Entry")); } }
 
-        public ICommand Calculate { get; set; }
+        public ICommand Digit { get; set; }
         public ICommand Operator { get; set; }
-        public ICommand Zero { get; set; }
+        public ICommand Clear { get; set; }
         public ICommand PlusOrMinus { get; set; }
         public ICommand Percent { get; set; }
         public ICommand Point { get; set; }
 
         public Computer()
         {
-
-            //string math = "100 / 2";
-            //string value = new DataTable().Compute(math, null).ToString();
-
-            string calculateString = string.Empty;
+            string digitString = string.Empty;
             OperatorType currentOperatorType = OperatorType.None;
             this.Operator = new Command<OperatorType>(arg =>
             {
@@ -56,54 +52,55 @@ namespace AppClass
                 switch (arg)
                 {
                     case OperatorType.Plus:
-                        calculateString += "+";
+                        digitString += "+";
                         break;
                     case OperatorType.Minus:
-                        calculateString += "-";
+                        digitString += "-";
                         break;
                     case OperatorType.Multiplied:
-                        calculateString += "*";
+                        digitString += "*";
                         break;
                     case OperatorType.Divided:
-                        calculateString += "/";
+                        digitString += "/";
                         break;
                     case OperatorType.Equal:
-                        this.Value = new DataTable().Compute(calculateString, null).ToString();
+                        this.Entry = new DataTable().Compute(digitString, null).ToString();
                         break;
                 }
             });
 
-            this.Calculate = new Command<string>(num =>
+            this.Digit = new Command<string>(num =>
             {
                 if (currentOperatorType == OperatorType.None)
-                    this.Value = this.Value == "0" ? num : this.Value += num;
+                    this.Entry = this.Entry == "0" ? num : this.Entry += num;
                 else
                 {
                     currentOperatorType = OperatorType.None;
-                    this.Value = num;
+                    this.Entry = num;
                 }
-                calculateString += num;
+                digitString += num;
             });
 
-            this.Zero = new Command(() =>
+            this.Clear = new Command(() =>
             {
-                this.Value = "0";
-                calculateString = "";
-
+                this.Entry = "0";
+                digitString = "";
             });
 
-            this.PlusOrMinus = new Command(num =>
+            this.PlusOrMinus = new Command(() =>
             {
-                this.Value = (double.Parse(this.Value) * (-1)).ToString();
+                this.Entry = (double.Parse(this.Entry) * (-1)).ToString();
             });
 
             this.Percent = new Command(() =>
             {
-                this.Value = (double.Parse(this.Value) / 100).ToString();
+                this.Entry = (double.Parse(this.Entry) / 100).ToString();
             });
 
-
-
+            this.Point = new Command(() =>
+            {
+                this.Entry = this.Entry.Contains(".") ? this.Entry: this.Entry+=".";
+            });
         }
     }
 }
